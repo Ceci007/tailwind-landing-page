@@ -1,15 +1,17 @@
-import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import React, { useEffect } from 'react';
+
+import Aos from "aos";
 
 export default function Header() {
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
+
     return (
         <>
-            <header>
-                <Navbar />
-            </header>
-            <section className="relative">
+            <header id="home" className="relative">
                 <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
-                    <div className="flex flex-1 flex-col items-center lg:items-start mb-10 md:mb-16 lg:mb-0">
+                    <div data-aos="fade-up" className="flex flex-1 flex-col items-center lg:items-start mb-10 md:mb-16 lg:mb-0">
                         <h2 className="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
                             A Simple Bookmark Manager
                         </h2>
@@ -18,20 +20,20 @@ export default function Header() {
                         load instantly. Try it for free.
                         </p>
                         <div className="flex justify-center flex-wrap gap-6">
-                            <button type="button" className="btn btn-purple hover:scale-95">
-                            Get it on Chrome
+                            <button type="button" className="btn w-48 btn-purple hover:scale-95">
+                            Get it on Chrome 
                             </button>
-                            <button type="button" className="btn btn-white text-white hover:scale-95">
+                            <button type="button" className="btn w-48 btn-white hover:scale-95">
                             Get it on Firefox
                             </button>
                         </div>
                     </div>
-                    <div className="flex flex-1 justify-center mb-10 md:mb-16 lg:mb-0 z-10">
+                    <div data-aos="fade-down" data-aos-delay="1000" className="flex flex-1 justify-center mb-10 md:mb-16 lg:mb-0 z-10">
                         <img className="w-5/6 h-5/6 sm:w-3/4 sm:h-3/4 md:w-full md:h-full" src="./images/hero-bg.png" alt="hero background" />
                     </div>
                 </div>
                 <div className="hidden md:block overflow-hidden bg-bookmark-purple rounded-l-full absolute h-80 w-2/4 lg:w-1/3 top-32 right-0 lg:-bottom-38" />
-            </section>
+            </header>
         </>
     );
 }
